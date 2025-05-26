@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/resourses/css/chatStyle.css">
+    <title>Document</title>
+</head>
+<body>
+<div class="container">
+  <div class="item">Header</div>
+  <div class="item">
+    <div>
+     Chat con <%= nombreChat %>
+     <% console.log("Chat con "+nombreChat) %>
+     
+    </div>
+  </div>
+  <div class="item">
+    <div>
+        
+    </div>
+    <div>
+      <% mensajes.forEach(function(m){ %>
+        
+       <% let nombre = "" %>
+        <% if (m.id_usuario_emisor == idUsuarioAct){ %>
+          <% nombre = nombreUsuarioAct %>
+       <% }else{ %>
+        <% nombre = nombreChat %>
+       <% } %>
+
+
+    <strong><%= nombre %>:</strong> <%= m.mensaje_chat %><br>
+        <br>
+     <% }) %>
+
+        <form action="/chat/<%= idChat %>" method="post">
+            <input type="text" id="mensaje" name="mensaje">
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+  </div>
+  <div class="item">Footer</div>
+</div>
+</body>
+</html>

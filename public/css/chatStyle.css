@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ffffff;
+  color: #000000;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  background-image: url('https://www.transparenttextures.com/patterns/brushed-alum.png');
+  background-repeat: repeat;
+}
+
+a {
+  color: #3366cc;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #ff3399;
+  background-color: #f0f0f0;
+  padding: 2px 4px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 20px;
+}
+
+.item {
+  background-color: #f7f7f7;
+  border: 2px solid #999;
+  padding: 15px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Header */
+.item:nth-child(1) {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 2px solid #999;
+  background-color: #000080;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+}
+
+/* Sidebar */
+.item:nth-child(2) {
+  width: 25%;
+  height: 80vh;
+  background-color: #e0e0ff;
+  border-color: #9999cc;
+  overflow-y: auto;
+}
+
+/* Chat content */
+.item:nth-child(3) {
+  flex: 1;
+  height: 80vh;
+  overflow-y: auto;
+  background-color: #fff;
+  border-color: #cccccc;
+}
+
+/* Footer */
+.item:nth-child(4) {
+  width: 100%;
+  height: auto;
+  order: 2;
+  text-align: center;
+  font-size: 14px;
+  background-color: #000080;
+  color: white;
+  padding: 20px 0;
+  border-top: 2px solid #999;
+}
+
+/* Responsive: que sidebar se achique y contenido se agrande */
+@media (max-width: 768px) {
+  .item:nth-child(2) {
+    width: 15%; /* sidebar más chico */
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .item:nth-child(3) {
+    width: 85%; /* contenido más grande */
+    padding: 10px;
+  }
+
+  .item:nth-child(1) {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .item:nth-child(4) {
+    font-size: 12px;
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  .item:nth-child(2) {
+    width: 10%; /* más chico aún */
+    font-size: 10px;
+  }
+
+  .item:nth-child(3) {
+    width: 90%;
+  }
+
+  .item:nth-child(1) {
+    font-size: 14px;
+    flex-direction: column;
+  }
+
+  input, label, textarea {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="/resourses/css/perfilStyle.css">
+ 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div class="container">
+  <div class="item">
+    <a href="/">Volver</a>
+    <a href="">Amigos</a>
+  </div>
+  <div class="item">
+    <a href="/perfil/<%= nombreUsuario  %>/<%= idUsuario %>"><%= nombreUsuario %></a>
+  </div>
+  <div class="item">
+    <div>
+      <h2><%= nombreUsuario %></h2>
+      <% if( amigo && amigo.length > 0){ %>
+        <a href="/perfil/enviar_solicitud/<%= idUsuario %>"><%= amigo[0].estado %></a>
+      <hr>
+      <% }else{ %>
+        <a href="/perfil/enviar_solicitud/<%= idUsuario %>">Enviar Solicitud</a>
+        <% } %>
+    </div>
+
+
+    <% post.forEach(function(p){ %>
+      <% if(p.tipo_post == "texto"){ %>
+        <% if(idUsuario == idSession && idSession){ %>
+            <div>
+              <a href="/perfil/<%= nombreUsuario  %>/<%= idUsuario %>"><%= nombreUsuario %></a>
+              <p><%= p.contenido_texto_post %></p>
+              <a href="/perfil/<%= nombreUsuario %>/<%= p.id_post %>">Ver mas</a>
+              <a href="">Like</a>
+              <a href="/perfil/<%= nombreUsuario %>/<%= idUsuario %>/eliminar/<%= p.id_post %>">Eliminar</a>
+              <hr>
+          </div>
+
+
+          <% }else{ %>
+            <div>
+              <a href="/perfil/<%= nombreUsuario  %>/<%= idUsuario %>"><%= nombreUsuario %></a>
+              <p><%= p.contenido_texto_post %></p>
+              <a href="/perfil/<%= nombreUsuario %>/<%= p.id_post %>">Ver mas</a>
+              <a href="">Like</a>
+              <hr>
+          </div>
+          <% } %>
+      <%}%>
+
+
+
+      <% if(p.tipo_post == "img"){ %>
+        <% if(idUsuario == idSession && idSession){ %>
+            <div>
+              <a href="/perfil/<%= nombreUsuario  %>/<%= idUsuario %>"><%= nombreUsuario %></a>
+              <br>
+              <img class="imgPost" src="/<%= p.contenido_img_post %>" alt="">
+              <br>
+              <a href="/perfil/<%= nombreUsuario %>/<%= p.id_post %>">Ver mas</a>
+              <a href="">Like</a>
+              <a href="/perfil/<%= nombreUsuario %>/<%= idUsuario %>/eliminar/<%= p.id_post %>">Eliminar</a>
+              <hr>
+          </div>
+
+          
+          <% }else{ %>
+            <div>
+              <a href="/perfil/<%= nombreUsuario  %>/<%= idUsuario %>"><%= nombreUsuario %></a>
+              <h2></h2>
+              <br>
+              <img class="imgPost" src="/<%= p.contenido_img_post %>" alt="">
+              <br>
+              <a href="/perfil/<%= nombreUsuario %>/<%= p.id_post %>">Ver mas</a>
+              <a href="">Like</a>
+              <hr>
+            </div>
+            <% } %>
+      <%}%>
+    <% }) %>
+  </div>
+  <div class="item">foot</div>
+  <div class="item">
+
+    <h2>Notificaciones</h2>
+    <hr>
+
+  </div>
+</div>
+</body>
+</html>

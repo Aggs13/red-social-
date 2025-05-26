@@ -1,0 +1,82 @@
+body {
+  background-color: #ffffff;
+  color: #000000;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  background-image: url('https://www.transparenttextures.com/patterns/brushed-alum.png');
+  background-repeat: repeat;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px;
+}
+
+.item {
+  background-color: #f7f7f7;
+  border: 2px solid #999;
+  padding: 25px;
+  width: 340px;
+  box-sizing: border-box;
+  box-shadow: 4px 4px 8px rgba(0,0,0,0.2);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+label {
+  font-weight: bold;
+  color: #000080;
+  font-size: 14px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  background-color: #E0E0FF;
+  color: #000000;
+  border: 2px solid #ccc;
+  padding: 8px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+  box-shadow: inset 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+input[type="submit"] {
+  margin-top: 10px;
+  background-color: #000080;
+  color: #ffffff;
+  border: 2px solid #000080;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+input[type="submit"]:hover {
+  background-color: #3366cc;
+  border-color: #040f66;
+  color: #fff;
+}
+
+a {
+  color: #3366cc;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #000080;
+  background-color: #f0f0f0;
+  padding: 2px 4px;
+}
