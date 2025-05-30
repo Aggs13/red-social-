@@ -15,6 +15,10 @@ router.use("/perfil",perfilRouter)
 const accederRouter = require("./acceder")
 router.use("/acceder",accederRouter)
 
+// publicaciones amigos
+const publicAmigosRouter = require("./publicAmigos")
+router.use("/publicaciones",publicAmigosRouter)
+
 // Index
 const indexRouter = require("./index")(upload)
 router.use("/",indexRouter)

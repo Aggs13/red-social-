@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/resourses/css/indexStyle.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet"/>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+  <div class="item">
+    <% if (!logeo) { %>
+        <a href="/acceder">Acceder</a>
+      <% } else { %>
+        <a href="/salir/<%= idUsuario %>">Cerrar Sesión</a>
+      <% } %>
+  </div>
+
+  <div class="item">
+    <% if (logeo) { %>
+        <a href="/perfil/<%= usuario %>/<%= idUsuario %>"><%= usuario %></a>
+        <br>
+      <% } %>
+      <h3>Amigos</h3>
+      <hr>
+      <% amigos.forEach(function(a){ %>
+           <a href="/perfil/<%= a.nombre_usuario %>/<%= a.id_usuario %>"><%= a.nombre_usuario %></a>
+           <a href="/chat/<%= a.id_amigos %>" class="linkNormal" >Chat</a>
+        <br>
+      <%}) %>   
+  </div>
+
+  <div class="item">
+    <div>
+        <% postAmigos.forEach(function(p){ %>
+            <% if (p.tipo_post == "texto") { %>
+            <a href="/perfil/<%= p.nombre_usuario %>/<%= p.id_usuario_post %>">
+              <%= p.nombre_usuario %>
+            </a>
+            <br />
+            <p><%= p.contenido_texto_post %></p>
+            <br />
+            <a href="#" class="linkNormal">Comentarios</a>
+            <a href="#" class="linkNormal">Like</a>
+            <hr />
+          <% } %>
+
+
+
+          <% if (p.tipo_post == "img") { %>
+            <a href="/perfil/<%= p.nombre_usuario %>/<%= p.id_usuario_post %>">
+              <%= p.nombre_usuario %>
+            </a>
+            <br />
+            <h4><%= p.titulo_img_post %></h4>
+            <br />
+            <img src="/<%= p.contenido_img_post %>" alt="" class="imgPost" />
+            <br />
+            <a href="#" class="linkNormal">Comentarios</a>
+            <a href="#" class="linkNormal">Like</a>
+            <hr />
+          <% } %>
+        <% }) %>
+    </div>
+  </div>
+  <div class="item">Footer</div>
+  <div class="item">Sidebar</div>
+</div>
+</body>
+</html>

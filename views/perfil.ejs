@@ -26,7 +26,8 @@
     <div>
       <h2><%= nombreUsuario %></h2>
       <% if( amigo && amigo.length > 0){ %>
-        <a href="/perfil/enviar_solicitud/<%= idUsuario %>"><%= amigo[0].estado %></a>
+        <p><%= amigo[0].estado %></p>
+        <a href="/perfil/<%= nombreUsuario  %>/<%= idUsuario %>">Eliminar</a>
       <hr>
       <% }else{ %>
         <a href="/perfil/enviar_solicitud/<%= idUsuario %>">Enviar Solicitud</a>
@@ -65,6 +66,7 @@
             <div>
               <a href="/perfil/<%= nombreUsuario  %>/<%= idUsuario %>"><%= nombreUsuario %></a>
               <br>
+              <p><%= p.titulo_img_post %></p>
               <img class="imgPost" src="/<%= p.contenido_img_post %>" alt="">
               <br>
               <a href="/perfil/<%= nombreUsuario %>/<%= p.id_post %>">Ver mas</a>
@@ -77,8 +79,8 @@
           <% }else{ %>
             <div>
               <a href="/perfil/<%= nombreUsuario  %>/<%= idUsuario %>"><%= nombreUsuario %></a>
-              <h2></h2>
               <br>
+              <p><%= p.titulo_img_post %></p>
               <img class="imgPost" src="/<%= p.contenido_img_post %>" alt="">
               <br>
               <a href="/perfil/<%= nombreUsuario %>/<%= p.id_post %>">Ver mas</a>
